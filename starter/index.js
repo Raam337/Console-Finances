@@ -87,13 +87,11 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
+console.log("Financial analysis");
+console.log("----------------------");
 
 //Number of months:
 console.log(`Total months: ${finances.length}`);
-
-
-
-
 
 //Total money:
 var sum = 0
@@ -104,21 +102,13 @@ for (const i of finances) {
 console.log(`Total: ${sum}$`);
 
 
-
-
-
 //Change average:
-var delta = [],
-    min = 0,
-    max = 0;
+var delta = [];
 for (let i = 0; i < finances.length-1; i++) {
   delta.push([
     finances[i+1][1] - finances[i][1],
-    finances[i][0]
+    finances[i+1][0]
   ]);
-
-  min = min > delta[i][0] ? delta[i][0] : min;
-  max = max < delta[i][0] ? delta[i][0] : max;
 }
 
 var delta_sum = delta.reduce(function (acc, [value, data]) {
@@ -133,5 +123,11 @@ console.log(`Average change:${delta_avg.toFixed(2)}$`);
 
 
 //Max,min profit/loss:
-
-console.log(max,min);
+var min = [0,"date"],
+    max=[0,"date"];
+for (const j of delta) {
+  min = min[0] > j[0]? j:min;
+  max = max[0] < j[0]? j:max;
+}
+console.log(`Greatest increase in profits: ${max[1]}, ${max[0]}$`);
+console.log(`Greatest decrease in profits: ${min[1]}, ${min[0]}$`);
