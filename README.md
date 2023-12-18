@@ -8,4 +8,4 @@ JS based financial console which receives a string of finanical data and outputs
 
 
 ## Usage
-Open main html file and open console to see the result.
+Open main html file (https://raam337.github.io/Console-Finances/starter/) and open console to see the result.
